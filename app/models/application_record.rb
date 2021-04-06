@@ -1,7 +1,8 @@
 class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
-  connected_to shards: {
-
+  connects_to shards: {
+    default: {writing: :default, reading: :default},
+    archive: {writing: :archive, reading: :archive}
   }
 end
